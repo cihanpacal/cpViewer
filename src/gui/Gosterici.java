@@ -145,7 +145,7 @@ public class Gosterici extends JFrame {
 		mnItem1Ac.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		mnItem1Ac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fileChooser=new JFileChooser("C:\\Users\\Cihan\\Pictures\\Resimler");
+				JFileChooser fileChooser=new JFileChooser("C:\\Users\\Personel\\Pictures\\Resimler");
 				fileChooser.setDialogTitle("Dosya Aç");
 				fileChooser.setFileFilter(new DosyaFiltresi());
 				int deger=fileChooser.showOpenDialog(null);
