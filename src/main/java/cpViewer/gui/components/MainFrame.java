@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
+import cpViewer.gui.components.main_panel.MainPanel;
+import cpViewer.gui.components.menu_bar.MenuBar;
+
 public class MainFrame extends JFrame {
 
 	/**

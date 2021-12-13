@@ -1,4 +1,4 @@
-package cpViewer.gui.components;
+package cpViewer.gui.components.main_panel;
 
 import java.awt.Color;
 import java.awt.Dimension;

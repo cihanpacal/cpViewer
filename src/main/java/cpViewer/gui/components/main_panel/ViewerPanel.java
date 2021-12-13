@@ -1,4 +1,4 @@
-package cpViewer.gui.components;
+package cpViewer.gui.components.main_panel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -6,6 +6,9 @@ import java.awt.Component;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import cpViewer.gui.components.AbstractContentPanel;
+import cpViewer.gui.components.DrawingPanel;
 
 public class ViewerPanel extends JPanel {
 
