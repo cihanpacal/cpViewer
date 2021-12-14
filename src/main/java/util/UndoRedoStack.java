@@ -12,7 +12,13 @@ public class UndoRedoStack<T> {
 		redoStack=new Stack<T>();
 	}
 	
-		//redo
+	
+	public void push(T item) {
+		undoStack.add(item);
+		redoStack.clear();
+	}
+	
+	//redo
 	public T pushUndo(T current) {
 		if(!redoStack.isEmpty()) {
 			undoStack.push(current);
