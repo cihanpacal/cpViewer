@@ -7,7 +7,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import cpViewer.gui.components.AbstractContentPanel;
+import cpViewer.gui.components.Drawable;
 import cpViewer.gui.components.DrawingPanel;
 
 public class ViewerPanel extends JPanel {
@@ -17,7 +17,7 @@ public class ViewerPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private AbstractContentPanel contentPanel;
+	private DrawingPanel drawingPanel;
 	private JScrollPane scrollPane=new JScrollPane();
 	
 	public ViewerPanel() {
@@ -26,18 +26,12 @@ public class ViewerPanel extends JPanel {
 	    setBorder(null);
 		setBackground(Color.BLACK);
 		setLayout(new BorderLayout(0, 0));
-		setContentPanel(new DrawingPanel());
-		scrollPane.setViewportView(contentPanel);
+		drawingPanel=new DrawingPanel();
+		scrollPane.setViewportView(drawingPanel);
 		add(scrollPane);
 	}
 
-	public AbstractContentPanel getContentPanel() {
-		return contentPanel;
-	}
-
-	public void setContentPanel(AbstractContentPanel contentPanel) {
-		this.contentPanel = contentPanel;
-	}
+	
 	
 	
 

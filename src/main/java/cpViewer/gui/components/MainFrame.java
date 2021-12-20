@@ -22,7 +22,7 @@ public class MainFrame extends JFrame {
 		super();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/images/icon.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 700, 450);
 		setContentPane(mainPanel);
 		setJMenuBar(appMenuBar);
 		setVisible(true);

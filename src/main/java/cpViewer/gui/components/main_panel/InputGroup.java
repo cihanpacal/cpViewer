@@ -4,15 +4,17 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+
+import cpViewer.context.AppContext;
+import filters.ZoomIn2Filtre;
+import filters.ZoomOutFiltre;
+
 import java.awt.Dimension;
 
 public class InputGroup extends JPanel {
@@ -33,10 +35,17 @@ public class InputGroup extends JPanel {
 		setBackground(new Color(220, 220, 220));
 		// setBorder(new LineBorder(new Color(180,180,180)));
 		setPreferredSize(new Dimension(200, 35));
-		undoButton = new JButton("geri");
-		redoButton = new JButton("ileri");
+		undoButton = new JButton();
+		undoButton.setActionCommand("undo");
+		undoButton.setIcon(new ImageIcon(this.getClass().getResource("/images/undo.png")));
+		redoButton = new JButton();
+		redoButton.setActionCommand("redo");
+		redoButton.setIcon(new ImageIcon(this.getClass().getResource("/images/redo.png")));
 		zoomInButton = new JButton("+");
+		zoomInButton.setActionCommand("zoomIn");
 		zoomOutButton = new JButton("-");
+		zoomOutButton.setActionCommand("zoomOut");
+		
 
 		JButton[] buttonList = new JButton[] { undoButton, redoButton, zoomOutButton, zoomInButton };
 
@@ -50,19 +59,20 @@ public class InputGroup extends JPanel {
 			add(button);
 		}
 
+		
 		undoButton.addActionListener((event) -> {
-			JOptionPane.showMessageDialog(null,"undo");
+			AppContext.getAppContext().undo();
 		});
 
 		redoButton.addActionListener((event) -> {
-			JOptionPane.showMessageDialog(null,"redo");
+			AppContext.getAppContext().redo();
 		});
 
 		zoomInButton.addActionListener((event) -> {
-			JOptionPane.showMessageDialog(null,"zoomIn");
+			AppContext.getAppContext().setFilter(new ZoomIn2Filtre());
 		});
 		zoomOutButton.addActionListener((event) -> {
-			JOptionPane.showMessageDialog(null,"zoomOut");
+			AppContext.getAppContext().setFilter(new ZoomOutFiltre());
 		});
 	}
 }

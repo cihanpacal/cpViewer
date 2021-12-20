@@ -14,7 +14,7 @@ public class UndoRedoStack<T> {
 	
 	
 	public void push(T item) {
-		undoStack.add(item);
+		undoStack.push(item);
 		redoStack.clear();
 	}
 	

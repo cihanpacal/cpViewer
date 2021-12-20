@@ -7,14 +7,12 @@ import cpViewer.gui.components.MainFrame;
 public class Application {
 
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		EventQueue.invokeLater(()-> {
 				try {
 					MainFrame mainFrame=new MainFrame();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
 		});
 
 	}
