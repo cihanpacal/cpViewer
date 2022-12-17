@@ -3,8 +3,6 @@ package filters.edge_dedection_filters;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import javax.swing.JOptionPane;
-
 import filters.IFilter;
 import util.Mat;
 

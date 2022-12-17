@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
+import filters.Mozaik;
+
 public class Mat {
 	
 	public static int yuvarla255(int i) {
@@ -37,6 +39,15 @@ public class Mat {
 		@Override
 		public int compare(Color o1, Color o2) {
 			return (rgbOrtalama(o1) > rgbOrtalama(o2) ? -1 : (rgbOrtalama(o1) == rgbOrtalama(o2) ? 0 : 1));
+		}
+		
+	}
+	
+	class MozaikComperator implements Comparator<Mozaik> {
+
+		@Override
+		public int compare(Mozaik o1, Mozaik o2) {
+			return o1.getMean()<o2.getMean() ? -1 : 1;
 		}
 		
 	}

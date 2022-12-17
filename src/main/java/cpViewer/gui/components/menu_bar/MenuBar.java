@@ -2,9 +2,12 @@ package cpViewer.gui.components.menu_bar;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -12,11 +15,13 @@ import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import cpViewer.context.AppContext;
 import filters.KeskinlestirmeFiltre;
+import filters.MozaikFilter;
+import filters.OilPaintingFilter;
 import filters.ZoomIn1Filtre;
 import filters.ZoomIn2Filtre;
 import filters.ZoomOutFiltre;
 import filters.bluring_filters.GaussFilter;
-import filters.bluring_filters.OrtFiltre;
+import filters.bluring_filters.MeanFilter;
 import filters.color_filters.BlueChannelFilter;
 import filters.color_filters.GrayScaleFilter;
 import filters.color_filters.GreenChannelFilter;
@@ -210,7 +215,7 @@ public class MenuBar extends JMenuBar {
 		bluringFilters.add(menuItemAvarage);
 		
 		menuItemAvarage.addActionListener((event)->{
-			AppContext.getAppContext().setFilter(new OrtFiltre());
+			AppContext.getAppContext().setFilter(new MeanFilter());
 		});
 		
 		JMenuItem menuItemGauss = new JMenuItem("Gauss");
@@ -248,6 +253,59 @@ public class MenuBar extends JMenuBar {
 		
 		menuItemSharpening.addActionListener((event)->{
 			AppContext.getAppContext().setFilter(new KeskinlestirmeFiltre());
+		});
+		
+		JMenuItem menuItemOil  = new JMenuItem("Yaðlý boya");
+		menuFilters.add(menuItemOil);
+		
+		menuItemOil.addActionListener((event)->{
+			AppContext.getAppContext().setFilter(new OilPaintingFilter());
+		});
+		
+		JMenuItem menuItemMozaik  = new JMenuItem("Mozaik");
+		menuFilters.add(menuItemMozaik);
+		
+		menuItemMozaik.addActionListener((event)->{
+			MozaikFilter mozaikFilter=new MozaikFilter();
+			BufferedImage b1=null;
+			BufferedImage b2=null;
+			BufferedImage b3=null;
+//			BufferedImage b4=null;
+			BufferedImage b5=null;
+			BufferedImage b6=null;
+			BufferedImage b7=null;
+			BufferedImage b8=null;
+			BufferedImage b9=null;
+			BufferedImage b10=null;
+			BufferedImage b11=null;
+			BufferedImage b12=null;
+			BufferedImage b13=null;
+			BufferedImage b14=null;
+			BufferedImage b15=null;
+			try {
+				b1 = ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\1.jpg"));
+				b2=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\2.jpg"));
+				b3=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\3.jpg"));
+//				b4=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\4.jpg"));
+				b5=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\5.jpg"));
+			    b6=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\6.jpg"));
+				b7=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\7.jpg"));
+				b8=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\8.jpg"));
+				b9=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\9.jpg"));
+				b10=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\10.jpg"));
+				b11=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\11.jpg"));
+				b12=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\12.jpg"));
+				b13=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\13.jpg"));
+				b14=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\14.jpg"));   			
+				b15=ImageIO.read(new File("C:\\Users\\Cihan\\Desktop\\d\\15.jpg"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			List<BufferedImage> buffList=List.of(b1,b2,b3,b5,b6,b7,b8,b9,b10,b11,b12,b13);
+			mozaikFilter.addImages(buffList);
+			AppContext.getAppContext().setFilter(mozaikFilter);
 		});
 	
 	}
